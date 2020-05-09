@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import React from 'react'
 
-import TodosComponents from './todos-components'
+import Todos from './todos'
 
-describe(' TodosComponents', () => {
+describe(' Todos', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<TodosComponents />)
+    const { baseElement } = render(<Todos />)
     expect(baseElement).toBeTruthy()
   })
 })

@@ -1,3 +1,4 @@
+import { Todos } from '@company-starter/todos-components'
 import { ITodo } from '@company-starter/todos-interfaces'
 import React, { useEffect, useState } from 'react'
 
@@ -24,11 +25,7 @@ const App = () => {
   return (
     <>
       <h1>Todos</h1>
-      <ul>
-        {todos.map((t) => (
-          <li className={'todo'}>{t.title}</li>
-        ))}
-      </ul>
+      <Todos todos={todos} />
       <button id={'add-todo'} onClick={addTodo}>
         Add Todo
       </button>
