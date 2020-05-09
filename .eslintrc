@@ -4,21 +4,73 @@
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "extraFileExtensions": [".json"]
   },
   "ignorePatterns": ["**/*"],
   "plugins": ["@typescript-eslint", "@nrwl/nx"],
   "extends": [
     "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
+    "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
   "rules": {
+    "no-unused-vars": "off",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "ignore",
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "import/no-unresolved": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-parameter-properties": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-explicit-any": [
+      "error",
+      {
+        "fixToUnknown": true
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase"]
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"]
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "prefix": ["I"]
+      },
+      {
+        "selector": "class",
+        "format": ["PascalCase"]
+      }
+    ],
     "@nrwl/nx/enforce-module-boundaries": [
       "error",
       {
@@ -29,13 +81,5 @@
         ]
       }
     ]
-  },
-  "overrides": [
-    {
-      "files": ["*.tsx"],
-      "rules": {
-        "@typescript-eslint/no-unused-vars": "off"
-      }
-    }
-  ]
+  }
 }
