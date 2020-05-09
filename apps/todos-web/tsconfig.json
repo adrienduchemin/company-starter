@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "types": ["node", "jest"],
-    "outDir": "../../dist"
+    "outDir": "../../dist/out-tsc",
   },
   "files": [
     "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
